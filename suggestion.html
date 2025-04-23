@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suggestion - Bleto</title>
+    <link rel="icon" href="channel_profile.jpg">
+    <style>
+        /* إضافة نمط للدائرة */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #333333, #b88f00);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .contact-container {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+            width: 400px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #ffcc00;
+        }
+
+        input, textarea {
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            margin-top: 10px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #ffcc00;
+            border: none;
+            border-radius: 5px;
+            color: #000;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #ffd700;
+        }
+
+        /* نمط الصورة الدائرية */
+        .profile-icon {
+            width: 100px; /* عرض الصورة */
+            height: 100px; /* ارتفاع الصورة */
+            border-radius: 50%; /* يجعل الصورة دائرية */
+            object-fit: cover; /* يجعل الصورة ملائمة للدائرة */
+            margin: 20px auto; /* توسيع الهوامش */
+            display: block; /* لجعلها مركزة */
+        }
+        .confirmation {
+            display: none;
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .confirmation h3 {
+            margin: 0;
+            color: #ffcc00;
+        }
+
+        .home-button {
+            margin-top: 10px;
+            background-color: #00aaff;
+        }
+
+        .home-button:hover {
+            background-color: #0099e6;
+        }
+    </style>
+</head>
+<body>
+    <div class="contact-container">
+        <img src="channel_profile.jpg" alt="Profile Icon" class="profile-icon">
+        <h2>Your Suggestion</h2>
+        <input type="text" id="username" placeholder="Your Name" required />
+        <textarea id="message" placeholder="Write your Suggestion here..." required></textarea>
+        <button onclick="sendMessage()">Send Your Suggestion</button>
+
+        <div class="confirmation" id="confirmation">
+            <h3>Thank you for your suggestion. Your suggestion has been sent successfully!</h3>
+            <button class="home-button" onclick="goHome()">Go to Homepage</button>
+        </div>
+    </div>
+
+    <script>
+        function sendMessage() {
+            const username = document.getElementById('username').value;
+            const message = document.getElementById('message').value;
+
+            if (username.trim() === '' || message.trim() === '') {
+                alert('Please fill in all fields before sending.');
+                return;
+            }
+
+            const webhookURL = 'https://discord.com/api/webhooks/1298664344598614016/bcIkTBBYDrmSsONsD92Ius2RgPBB1Zdh2OZI56gBf-694mHhkVfRY7FDKU5YpZLZEbPf'; // استبدل بـ Webhook الخاص بك
+
+            // إنشاء رسالة تحتوي على الاسم والرسالة
+            const payload = {
+                content: `Name : **${username}** 
+Suggestion : ${message}`
+            };
+
+            fetch(webhookURL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            })
+            .then(response => {
+                if (response.ok) {
+                    document.getElementById('username').value = ''; // مسح الاسم
+                    document.getElementById('message').value = ''; // مسح الرسالة
+                    document.getElementById('confirmation').style.display = 'block'; // إظهار رسالة التأكيد
+                } else {
+                    alert('Failed to send message. Please try again.');
+                }
+            })
+            .catch(error => {
+                alert('Error: ' + error.message);
+            });
+        }
+
+        function goHome() {
+            window.location.href = 'index.html'; // استبدل بـ URL الصفحة الرئيسية
+        }
+    </script>
+</body>
+</html>

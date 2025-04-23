@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"> <!-- تأكد من وجود ملف style.css -->
+    
+    <title>بروجاكت برودكاست ⚡️️</title>
+    <link rel="icon" href="channel_profile.jpg">
+    <style>
+        body {
+            background: linear-gradient(to right, #333333, #b88f00); /* تدرج لون الخلفية */
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            color: #fff; /* لون النص */
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center; /* محاذاة الأزرار في المنتصف */
+            margin-top: 20px;
+            flex-direction: column;
+            gap: 15px; /* المسافة بين الأزرار */
+        }
+
+        .action-btn, .back-btn {
+            background-color: #fdd835; /* لون الزر - أصفر فاتح */
+            color: #000; /* لون النص - أسود */
+            border: none;
+            padding: 15px 25px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 30px; /* زوايا دائرية */
+            transition: all 0.3s ease; /* تأثيرات التمرير */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* ظل الزر */
+            text-transform: uppercase; /* تحويل النص إلى أحرف كبيرة */
+        }
+
+        .action-btn:hover, .back-btn:hover {
+            background-color: #ffeb3b; /* لون الزر عند التمرير - أصفر فاتح */
+            transform: translateY(-2px); /* رفع الزر قليلاً */
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* ظل أقوى عند التمرير */
+        }
+
+        .back-btn {
+            background-color: #3f51b5; /* لون زر العودة */
+            color: white; /* لون نص زر العودة */
+        }
+
+        .back-btn:hover {
+            background-color: #303f9f; /* لون زر العودة عند التمرير */
+        }
+
+        img {
+            max-width: 100%; /* جعل الصورة تتناسب مع العرض */
+            height: auto; /* الحفاظ على نسبة العرض إلى الارتفاع */
+            border-radius: 10px; /* زوايا دائرية للصورة */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* ظل للصورة */
+        }
+
+        video {
+            max-width: 100%; /* جعل الفيديو يتناسب مع العرض */
+            height: auto; /* الحفاظ على نسبة العرض إلى الارتفاع */
+            border-radius: 10px; /* زوايا دائرية للفيديو */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* ظل للفيديو */
+            margin: 20px 0; /* إضافة مسافة حول الفيديو */
+        }
+    </style>
+</head>
+<body> <!-- بداية عنصر الـ body -->
+
+    <div class="content">
+        <h1>بروجاكت برودكاست ⚡️</h1>
+        
+        <img src="https://cdn.discordapp.com/attachments/1139615715897376919/1140049579337846864/received_759239205591890-2.webp?ex=6718d028&is=67177ea8&hm=3f7ac90ccdaa6bf68e9362f41c858ac642657dbc1993e1566fd4c50cad4312ad&" alt="صورة جميلة">
+
+        <br>
+
+        <!-- الزر لتحميل الملف -->
+        <a href="Broadcast.zip" download>
+            <button class="action-btn">تحميل الملف</button>
+        </a>
+        
+        <!-- الأزرار الأخرى -->
+        <button class="back-btn" onclick="window.location.href='https://youtu.be/HMRRLK3PPqM'">رابط الفيديو</button>
+        <button class="back-btn" onclick="window.history.back()">عودة</button>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const menuItems = document.getElementById('menuItems');
+            menuItems.style.display = menuItems.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+<footer>
+    <p>&copy; 2024 Bleto. All rights reserved.</p>
+  </footer>
+</body> <!-- نهاية عنصر الـ body -->
+</html>
